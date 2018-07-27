@@ -1,0 +1,30 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_scan_broadcaster" args="0 0 0 0 0 0 base_link hokuyo_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.04 0 0 0 1 base_footprint base_link 100"/> 
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find sim_create)/maps/iga.yaml"/>
+
+  <!--- Run AMCL -->
+  <include file="$(find sim_create)/launch/amcl.launch">
+    <arg name="initial_pose_x"  value="0"/>
+    <arg name="initial_pose_y"  value="0"/>
+    <arg name="initial_pose_a"  value="0"/>
+    <arg name="scan_topic"      value="/scan"/>
+    <arg name="odom_frame_id"   value="odom"/>
+    <arg name="base_frame_id"   value="base_link"/>
+    <arg name="global_frame_id" value="map"/>
+  </include>
+
+  <!-- run move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find sim_create)/configs_map/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find sim_create)/configs_map/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find sim_create)/configs_map/local_costmap_param.yaml" command="load" />
+    <rosparam file="$(find sim_create)/configs_map/global_costmap_param.yaml" command="load" />
+    <rosparam file="$(find sim_create)/configs_map/move_base_params.yaml" command="load" />
+    <rosparam file="$(find sim_create)/configs_map/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find sim_create)/configs_map/navfn_global_planner_params.yaml" command="load" />
+    <remap from="cmd_vel" to="/sim_create/diff_drive_controller/cmd_vel" />
+  </node>
+</launch>
