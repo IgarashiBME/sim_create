@@ -4,7 +4,7 @@
 ROS kineticのインストール  
   
 また下記のコマンドでros-controlをインストールする。  
-'''sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers'''  
+'sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers'  
   
 
 
