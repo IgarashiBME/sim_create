@@ -46,10 +46,10 @@ w,a,s,dキーを押すことで機体を動かせる。機体を動かせば、�
   
 自作のgazebo worldと2Dマップをmove_baseに適用する際は、下記のファイルの参照先に気をつける。  
 ・ launch/movebase.launch  
-<node name="map_server" pkg="map_server" type="map_server" args="$(find sim_create)/maps/iga.yaml"/>  
+`<node name="map_server" pkg="map_server" type="map_server" args="$(find sim_create)/maps/iga.yaml"/>`  
   
 ・ launch/gazebo.launch  
-<arg name="world_name" value="$(find sim_create)/world/iga.world" />  
+`<arg name="world_name" value="$(find sim_create)/world/iga.world" />`  
   
 ・ マップのセーブの際に生成されたyamlファイル  
 pgmファイルの読み込み先に気をつける。  
