@@ -19,8 +19,8 @@ http://gazebosim.org/tutorials?tut=ros_gzplugins
 
 ## インストール  
 下記のコマンドによりROSのワークスペースにこのパッケージをダウンロードする。  
-cd catkin_ws/src  
-git clone https://github.com/IgarashiBME/sim_create  
+`cd catkin_ws/src`  
+`git clone https://github.com/IgarashiBME/sim_create`  
   
 
 
@@ -28,7 +28,7 @@ git clone https://github.com/IgarashiBME/sim_create
 ### 自律走行(move_base)  
 下記のコマンドを実行する。  
 navi_sim_create.shが存在するディレクトリに移動し、下記のコマンドを実行する。  
-./navi_sim_create.sh  
+`./navi_sim_create.sh`  
   
 
 
@@ -36,13 +36,13 @@ navi_sim_create.shが存在するディレクトリに移動し、下記のコ�
 ナビゲーションのために使うマップを自分で作りたい場合は下記を実行する。  
   
 gmapping_sim_create.shが存在するディレクトリに移動し、下記のコマンドを実行する。  
-./gmapping_sim_create.sh  
+`./gmapping_sim_create.sh`  
   
 rosrun sim_create key_teleop.pyが実行されているターミナルで  
 w,a,s,dキーを押すことで機体を動かせる。機体を動かせば、マッピングが行われていく。  
   
 マップのセーブは下記のコマンドで行う。  
-rosrun map_server map_saver  
+`rosrun map_server map_saver`  
   
 自作のgazebo worldと2Dマップをmove_baseに適用する際は、下記のファイルの参照先に気をつける。  
 ・ launch/movebase.launch  
