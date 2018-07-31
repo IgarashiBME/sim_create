@@ -4,12 +4,12 @@
 ROS kineticのインストール  
   
 また下記のコマンドでros-controlをインストールする。  
-sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers  
+'''sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers'''  
   
 
 
 ## 参考にしたページ  
-・シミュレーション環境の準備
+・シミュレーション環境の準備  
 http://bril-tech.blogspot.com/2016/10/ros3.html  
   
 ・シミュレーションへのLiDAR、Camaraの適用  
